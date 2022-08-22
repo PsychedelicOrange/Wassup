@@ -1,2 +1,3 @@
 https://blogs.oracle.com/sql/post/how-to-create-users-grant-them-privileges-and-remove-them-in-oracle-database
 https://stackoverflow.com/questions/54149422/open-close-an-oracle-connection-multiple-times-c-sharp
+https://www.c-sharpcorner.com/UploadFile/deepak.sharma00/connecting-to-oracle-database-from-windows-forms-application/
