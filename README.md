@@ -2,7 +2,7 @@
 Whatsapp clone 
 Using Oracle database
 ## Entity Relationship Diagram
-![ER Diagram](./ER/ERArtboard\ 1.jpg)
+![ER Diagram](./ER/ERArtboard%201.jpg)
 ## DataBase Schema
 * USER
   UUID - User Unique ID
