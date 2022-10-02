@@ -26,21 +26,37 @@ insert into ROOMS values(2,'ITB',1);
 insert into USER_ROOM values(0,0,0);
 insert into USER_ROOM values(1,0,0);
 -- add people to group
+CREATE OR REPLACE addUser(userid in INT,roomid in INT)
+AS 
+BEGIN
+IF (select ISGROUP from Rooms where RUID = roomid) = 1
+    insert into USER_ROOM values(userid,roomid,1);
+ELSE
+    insert into USER_ROOM values(userid,roomid,1);
+END IF;
 insert into USER_ROOM values(1,1,1);
 insert into USER_ROOM values(1,2,1);
 insert into USER_ROOM values(0,2,1);
 insert into USER_ROOM values(0,1,1);
 insert into USER_ROOM values(3,2,1);
--- send message to DM
-insert into MESSAGES values(0,0,0,'23-APR-2022','Hello ari !');
-insert into MESSAGES values(1,0,0,'24-APR-2022','Hello partho !');
--- send message to Group
-insert into MESSAGES values(0,2,1,'23-APR-2022','Hello ari and kushal !');
--- send money from 0 to 1
-insert into TRANSACS values(0,1,69);
-update BANKACC SET balance = balance - 69 WHERE UUID = 0; 
-update BANKACC SET balance = balance + 69 WHERE UUID = 1;
-
+-- send message // TO DO GET ROOM ID FROM DM !!! 
+CREATE OR REPLACE PROCEDURE sendMsg(sender IN int,roomid IN int,msg IN string)
+AS 
+BEGIN
+IF (select ISGROUP from Rooms where RUID = roomid) = 1
+    insert into MESSAGES values(sender,roomid,1,sysdate,msg);
+ELSE
+    insert into MESSAGES values(sender,roomid,0,sysdate,msg);
+END IF;
+-- sendMoney(sender,reciever,amount);
+CREATE OR REPLACE PROCEDURE sendMoney(sender IN int ,reciever IN int , amount in float)
+AS
+BEGIN
+    insert into TRANSACS values(sender,reciever,69);
+    update BANKACC SET balance = balance - amount WHERE UUID = sender; 
+    update BANKACC SET balance = balance + amount WHERE UUID = reciever;
+END;
+/
 ---- SELECTING DATA
 
 -- rooms a person belongs to
