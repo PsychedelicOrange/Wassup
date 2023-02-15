@@ -1,6 +1,8 @@
 # Wassup
 Whatsapp clone 
 Using Oracle database
+# DataBase Schema ER DIagram
+
 ## Entity Relationship Diagram
 ![ER Diagram](./ER/ERArtboard%201.jpg)
 ## DataBase Schema
