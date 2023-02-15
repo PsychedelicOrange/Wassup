@@ -3,13 +3,20 @@ create table USERS (UUID int,NAME varchar(10),PRIMARY KEY(UUID));
 create table ROOMS (RUID int,NAME varchar(21),ISGROUP int,PRIMARY KEY(RUID));
 create table USER_ROOM (UUID int,RUID int,ISGROUP int,FOREIGN KEY (UUID) REFERENCES USERS(UUID),FOREIGN KEY (RUID) REFERENCES ROOMS(RUID));
 create table MESSAGES (UUID int,RUID int,ISGROUP int,time TIMESTAMP,CONTENT varchar(100),FOREIGN KEY (UUID) REFERENCES USERS(UUID),FOREIGN KEY (RUID) REFERENCES ROOMS(RUID),PRIMARY KEY (UUID,RUID,time));
-
+create table BANKACC (UUID int,balance float,FOREIGN KEY (UUID) REFERENCES USERS(UUID),PRIMARY KEY (UUID,balance));
+create table TRANSACS (sendeUUIDrUUID int,recieverUUID int,amount float);
 ---- INSERTING DATA
 
 -- create users
 insert into USERS values(0,'Parth');
 insert into USERS values(1,'Arihant');
 insert into USERS values(3,'Kushal');
+
+-- create bank accounts for users
+insert into BANKACC values(0,10000);
+insert into BANKACC values(1,10000);
+insert into BANKACC values(2,10000);
+
 -- create room DM
 insert into ROOMS values(0,'Parth-Arihant',0);
 -- create room group 
@@ -29,6 +36,10 @@ insert into MESSAGES values(0,0,0,'23-APR-2022','Hello ari !');
 insert into MESSAGES values(1,0,0,'24-APR-2022','Hello partho !');
 -- send message to Group
 insert into MESSAGES values(0,2,1,'23-APR-2022','Hello ari and kushal !');
+-- send money from 0 to 1
+insert into TRANSACS values(0,1,69);
+update BANKACC SET balance = balance - 69 WHERE UUID = 0; 
+update BANKACC SET balance = balance + 69 WHERE UUID = 1;
 
 ---- SELECTING DATA
 
