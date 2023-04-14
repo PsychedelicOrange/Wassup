@@ -1,6 +1,5 @@
 # Wassup
-Whatsapp clone 
-Using Oracle database
+Desktop Chat application made using Winforms and Oracle SQL database
 # DataBase Schema ER DIagram
 
 ## Entity Relationship Diagram
