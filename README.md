@@ -1,5 +1,10 @@
 # Wassup
 Desktop Chat application made using Winforms and Oracle SQL database
+# Screenshots
+![Login](./ScreenShots/Login.jpg)
+![Chat](./ScreenShots/Chat.jpg)
+![add](./ScreenShots/Add_participants.jpg)
+![payment](./ScreenShots/Payment.jpg)
 # DataBase Schema ER DIagram
 
 ## Entity Relationship Diagram
