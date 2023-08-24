@@ -1,6 +1,9 @@
 # Wassup
-Whatsapp clone 
-Using Oracle database
+Desktop Chat application made using Winforms and Oracle SQL database
+# DataBase Schema ER DIagram
+
+## Entity Relationship Diagram
+![ER Diagram](./ER/ERArtboard%201.jpg)
 ## DataBase Schema
 * USER
   UUID - User Unique ID
